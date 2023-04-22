@@ -24,7 +24,7 @@ native-tls = ["native-tls-crate"]
 native-tls-vendored = ["native-tls", "native-tls-crate/vendored"]
 rustls-tls-native-roots = ["__rustls-tls", "rustls-native-certs"]
 rustls-tls-webpki-roots = ["__rustls-tls", "webpki-roots"]
-__rustls-tls = ["rustls", "webpki"]
+__rustls-tls = ["rustls", "rustls-webpki"]
 
 [dependencies]
 data-encoding = { version = "2", optional = true }
@@ -46,20 +46,24 @@ version = "0.2.3"
 
 [dependencies.rustls]
 optional = true
-version = "0.21.0"
+git = "https://github.com/jacktemaki/rustls"
+branch = "ring-0.17-riscv"
 
 [dependencies.rustls-native-certs]
 optional = true
-version = "0.6.0"
+git = "https://github.com/JackTemaki/rustls-native-certs"
+branch = "ring-017-riscv"
 
-[dependencies.webpki]
+[dependencies.rustls-webpki]
 optional = true
-version = "0.22"
+git = "https://github.com/JackTemaki/webpki"
+branch = "untrusted-0.9-riscv"
 features = ["std"]
 
 [dependencies.webpki-roots]
 optional = true
-version = "0.23"
+git = "https://github.com/jacktemaki/webpki-roots"
+branch = "0.22.0-riscv"
 
 [dev-dependencies]
 criterion = "0.4.0"
